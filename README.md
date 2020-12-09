@@ -8,3 +8,5 @@ npm install
 Step 2: Run the application with dev
 Run the following command in the project repo..
 npm run dev
+
+Run the application on browser on LOCALHOST 5000
