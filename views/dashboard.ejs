@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="menu">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a href="" class="nav-link">
+        <a href="/dashboard" class="nav-link">
           <i class="fas fa-chart-bar"></i> Dashboard</a>
       </li>
     </ul>
@@ -17,7 +17,7 @@
         <div class="dropdown">
           <a href="/AboutUS" class="nav-link">
             <i class="fas fa-id-badge"></i> About us</a>
-          
+
         </div>
       </li>
       <li class="nav-item">
@@ -32,16 +32,16 @@
 
 <!-- header div  -->
 <div class="header">
-  <div class="form-row" >
+  <div class="form-row">
     <div class="form-item" style="width: 45%; float:left; ">
-      <h2  style="text-align: left; ">Welcome Dr. <%= name %></h2>
+      <h2 style="text-align: left; ">Welcome Dr. <%= name %></h2>
     </div>
     <div class="form-item" style="width: 50%; float:left; margin-left: 5%; ">
       <h1 style="color: rgb(151, 32, 32); text-align: right;">NIIT University</h1>
       <h2 style=" color: rgb(151, 32, 32); text-align: right;">Neemrana</h2>
     </div>
-  </div>   
-</div> 
+  </div>
+</div>
 
 
 <!-- <div class="Header" >
@@ -63,85 +63,86 @@
 <div>
 
   <!-- Search Radio  -->
-  <div id="searchRadio"; style="float: left; margin-left:10px ;">
-    <label class="form-item" style="color:#FF0000; ">Search the Records by :    </label>
+  <div id="searchRadio" ; style="float: left; margin-left:10px ;">
+    <label class="form-item" style="color:#FF0000; ">Search the Records by : </label>
     <label class="btn btn-primary " style="margin-right:1px; margin-left: 15px;">
-      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="stuname"/> Name
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="stuname" /> Name
     </label>
     <label class="btn btn-primary " style="margin-right:1px;">
-      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="rollnum"/> Enrollment Number 
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="rollnum" /> Enrollment Number
     </label>
     <label class="btn btn-primary " style="margin-right:1px;">
-     <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="monthnum"/> Month 
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="monthnum" /> Month
     </label>
   </div>
   <br>
-  
+
   <!-- Search by Student  -->
-  <div id="stuNameDiv"; style="display: none;">
-    
+  <div id="stuNameDiv" ; style="display: none;">
+
     <form action="/users/getsingle" method="post">
       <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
       <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Name"
         style="width: 40%;float:right; ">
     </form>
   </div>
-  
+
   <!-- Search by Rollnumber  -->
-  <div id="rollnumdiv";  style="display: none;">
-    
+  <div id="rollnumdiv" ; style="display: none;">
+
     <form action="/users/getsingle1" method="post">
       <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
       <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Enrollment Number"
         style="width: 40%;float:right; ">
     </form>
   </div>
-  
+
   <!-- Search by month  -->
-  <div id="monthdiv"; style="display: none;">
-    
+  <div id="monthdiv" ; style="display: none;">
+
     <form action="/users/getsingle2" method="post">
       <button type="submit" style="float: right; margin-left:10px" class="btn btn-primary">Search</button>
-      <input type="number" class="form-control" id="pName" name="pName" placeholder="Search Student by Month" style="width: 40%;float:right; " >
+      <input type="number" class="form-control" id="pName" name="pName" placeholder="Search Student by Month"
+        style="width: 40%;float:right; ">
     </form>
   </div>
 
   <!-- Script for radio search  -->
   <script>
-    function yesnoCheck(){
-      
-      if(document.getElementById('stuname').checked){
-        var stuNameDiv = document.getElementById('stuNameDiv');     
+    function yesnoCheck() {
+
+      if (document.getElementById('stuname').checked) {
+        var stuNameDiv = document.getElementById('stuNameDiv');
         stuNameDiv.style.display = 'inline';
-  
+
         var rollnumdiv = document.getElementById('rollnumdiv');
-        rollnumdiv.style.display= 'none';
-  
+        rollnumdiv.style.display = 'none';
+
         var monthdiv = document.getElementById('monthdiv');
-        monthdiv.style.display= 'none';
-  
+        monthdiv.style.display = 'none';
+
       }
-      if(document.getElementById('rollnum').checked){
-        var stuNameDiv = document.getElementById('stuNameDiv');     
-        stuNameDiv.style.display= 'none';
-  
+      if (document.getElementById('rollnum').checked) {
+        var stuNameDiv = document.getElementById('stuNameDiv');
+        stuNameDiv.style.display = 'none';
+
         var rollnumdiv = document.getElementById('rollnumdiv');
         rollnumdiv.style.display = 'inline';
-  
+
         var monthdiv = document.getElementById('monthdiv');
-        monthdiv.style.display= 'none';
-        
+        monthdiv.style.display = 'none';
+
       }
-      if(document.getElementById('monthnum').checked){
-        var stuNameDiv = document.getElementById('stuNameDiv');     
-        stuNameDiv.style.display= 'none';
-  
+      if (document.getElementById('monthnum').checked) {
+        var stuNameDiv = document.getElementById('stuNameDiv');
+        stuNameDiv.style.display = 'none';
+
         var rollnumdiv = document.getElementById('rollnumdiv');
-        rollnumdiv.style.display= 'none';
-  
+        rollnumdiv.style.display = 'none';
+
         var monthdiv = document.getElementById('monthdiv');
         monthdiv.style.display = 'inline';
-        
+
       }
     }
   </script>
@@ -150,11 +151,12 @@
 
 
 <!-- test add student data div button  -->
-<div style="display: none;"> 
+<div style="display: none;">
   <form action="/StudentForm" method="post">
     <br>
     <br>
-    <button type="submit" formaction="/StudentForm" style="float: right; margin-left:10px ;" class="btn btn-primary">Student form</button>
+    <button type="submit" formaction="/StudentForm" style="float: right; margin-left:10px ;"
+      class="btn btn-primary">Student form</button>
     <br><br>
   </form>
 </div>
@@ -166,7 +168,7 @@
 
 <!-- date display script  -->
 <script>
-  
+
   var d = Date(Date.now());
   b = d.ge
   a = d.toString()
@@ -199,9 +201,9 @@
       <label for="rollno" style="color:#FF0000">Enrollment Number :</label>
       <input required type="text" id="rollno" name="rollno" class="form-control"
         placeholder="Enter Enrollment Number" />
-        <!-- <input type="button" id="b1" value="Send" onclick="send(this.form);" /> -->
+      <!-- <input type="button" id="b1" value="Send" onclick="send(this.form);" /> -->
     </div>
-    
+
     <!-- <script>
 
 
@@ -212,7 +214,7 @@
       }
 
     </script> -->
-   
+
 
     <div class="form-item" style="width: 50%; float:left; margin-left: 5%; ">
       <label for="name" style="color:#FF0000">Patient's Name :</label>
@@ -261,34 +263,34 @@
         <input id="others-radio" type="radio" name="sex" value="Others" autocomplete="off"> Others
       </label>
 
-      <input id ="sex" type="text" style="display: none;">
+      <input id="sex" type="text" style="display: none;">
       <script>
-        function genderSave(){
-          if(document.getElementById('male-radio').checked){
-            var sex = document.getElementById('sex');  
-            sex.value="Male" ;  
+        function genderSave() {
+          if (document.getElementById('male-radio').checked) {
+            var sex = document.getElementById('sex');
+            sex.value = "Male";
           }
 
-          if(document.getElementById('female-radio').checked){
-            var sex = document.getElementById('sex');  
-            sex.value="Female" ;                
+          if (document.getElementById('female-radio').checked) {
+            var sex = document.getElementById('sex');
+            sex.value = "Female";
           }
 
-          if(document.getElementById('others-radio').checked){
-            var sex = document.getElementById('sex');  
-            sex.value="Other" ;                 
+          if (document.getElementById('others-radio').checked) {
+            var sex = document.getElementById('sex');
+            sex.value = "Other";
           }
 
         }
       </script>
     </div>
-    
+
 
     <!-- email  -->
     <div class="form-item" style="width: 45%; float:left; margin-left: 5%; ">
       <label for="email" style="color:#FF0000">Email :</label>
-      <input required type="text" id="email" name="email" class="form-control"
-        placeholder="Enter Email" style="width: 111%;" />
+      <input required type="text" id="email" name="email" class="form-control" placeholder="Enter Email"
+        style="width: 111%;" />
     </div>
 
   </div>
@@ -316,10 +318,10 @@
         <option value="Injury">Injury</option>
       </datalist>
 
-      <input list="diseases" name="diseases" id="disease2" style="width: 19%; margin-right: 1%;" >
+      <input list="diseases" name="diseases" id="disease2" style="width: 19%; margin-right: 1%;">
       <datalist id="diseases"></datalist>
 
-      <input list="diseases" name="diseases" id="disease3"  style="width: 19%; margin-right: 1%;">
+      <input list="diseases" name="diseases" id="disease3" style="width: 19%; margin-right: 1%;">
       <datalist id="diseases"></datalist>
 
       <input list="diseases" name="diseases" id="disease4" style="width: 19%; margin-right: 1%;">
@@ -329,25 +331,24 @@
       <datalist id="diseases"></datalist>
 
     </div>
-      
-    
-    
+
+
+
   </div>
   <br>
 
-  
+
 
 
 
   <!-- Prescription -->
   <div class="form-item">
     <label for="psr" style="color:#FF0000">Prescription : </label><br>
-    
+
 
 
     <!-- css for table  -->
     <style>
-      
       input {
         width: 100%;
       }
@@ -387,12 +388,11 @@
       tbody tr:nth-child(even) {
         background: #f0f0f2;
       }
-
     </style>
 
- 
 
-    
+
+
     <!-- Datalist elements for dropdown  -->
     <datalist id="Prescription">
       <option value=""></option>
@@ -419,43 +419,43 @@
           <th scope="col">For Number of Days</th>
         </tr>
       </thead>
-      
+
       <tbody>
         <tr>
           <td>1</td>
-          <td> <input list="Prescription" name="Prescription" id="Prescription1" required> </td> 
-          <td class="item-qty"><INPUT id="qty1" type=number name=""></td>         
+          <td> <input list="Prescription" name="Prescription" id="Prescription1" required> </td>
+          <td class="item-qty"><INPUT id="qty1" type=number name=""></td>
           <td class="item-time period"><INPUT id="day1" type=number name=""></td>
         </tr>
-        
+
         <tr>
           <td>2</td>
-          <td><input list="Prescription" name="Prescription" id="Prescription2"  ></td>
+          <td><input list="Prescription" name="Prescription" id="Prescription2"></td>
           <datalist id="Prescription"></datalist>
-          <td class="item-qty"><INPUT id="qty2" type=number name=""></td>         
+          <td class="item-qty"><INPUT id="qty2" type=number name=""></td>
           <td class="item-time period"><INPUT id="day2" type=number name=""></td>
         </tr>
 
         <tr>
           <td>3</td>
-          <td><input list="Prescription" name="Prescription" id="Prescription3"  ></td>
+          <td><input list="Prescription" name="Prescription" id="Prescription3"></td>
           <datalist id="Prescription"></datalist>
-          <td class="item-qty"><INPUT id="qty3" type=number name=""></td>         
+          <td class="item-qty"><INPUT id="qty3" type=number name=""></td>
           <td class="item-time period"><INPUT id="day3" type=number name=""></td>
         </tr>
 
         <tr>
           <td>4</td>
-         <td> <input list="Prescription" name="Prescription" id="Prescription4"  ></td>
+          <td> <input list="Prescription" name="Prescription" id="Prescription4"></td>
           <datalist id="Prescription"></datalist>
-          <td class="item-qty"><INPUT id="qty4" type=number name=""></td>         
+          <td class="item-qty"><INPUT id="qty4" type=number name=""></td>
           <td class="item-time period"><INPUT id="day4" type=number name=""></td>
         </tr>
         <tr>
           <td>5</td>
-          <td><input list="Prescription" name="Prescription" id="Prescription5"  ></td>
+          <td><input list="Prescription" name="Prescription" id="Prescription5"></td>
           <datalist id="Prescription"></datalist>
-          <td class="item-qty"><INPUT id="qty5" type=number name=""></td>         
+          <td class="item-qty"><INPUT id="qty5" type=number name=""></td>
           <td class="item-time period"><INPUT id="day5" type=number name=""></td>
         </tr>
 
@@ -491,11 +491,14 @@
 <br>
 
 <!-- background coulour  -->
+
 <head>
   <style>
     body {
-      
-      background-color: #cccccc;
+
+      background-image: url('img/4.png');
+      background-attachment: fixed;
+      background-size: cover;
     }
   </style>
 </head>

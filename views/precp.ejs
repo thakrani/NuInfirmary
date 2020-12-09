@@ -31,29 +31,30 @@
     </div>
 
     <div class="formitem" style="width: 50%; font-size:20px ">
-        <label for="age">Patient's Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%- JSON.parse(JSON.stringify(age)) %></label>
+        <label for="age">Patient's Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <%- JSON.parse(JSON.stringify(age)) %></label>
     </div>
 
     <div class="formitem" style="text-align: left;font-size: 20px;">
-        <label for="symptoms">Symptoms:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
+        <label for="symptoms">Symptoms: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
             <% for(var i=0; i < JSON.parse(JSON.stringify(rendersympfront)).length; i++) { %>
-                  <%= JSON.parse(JSON.stringify(rendersympfront))[i] %>   | 
+            <%= JSON.parse(JSON.stringify(rendersympfront))[i] %> |
 
-           <% } %>
+            <% } %>
         </label>
     </div>
 
     <div class="formitem" style="text-align: left;font-size: 20px;">
-        <label for="psr">Prescription:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+        <label for="psr">Prescription: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
             <% for(var i=0; i < JSON.parse(JSON.stringify(renderpresfront)).length; i++) { %>
-                <%= JSON.parse(JSON.stringify(renderpresfront))[i] %>   | 
+            <%= JSON.parse(JSON.stringify(renderpresfront))[i] %> |
 
-         <% } %>
+            <% } %>
         </label><br>
     </div>
 
 
-        
+
 
 
     <br>
@@ -66,20 +67,21 @@
             </div>
         </div>
         <div class="form-item" style="width: 30%; margin-right: 3%;">
-            <button type="mailToStudent" formaction="mailto:shivam.thakrani@gmail.com" class="btn btn-primary btn-block">
+            <button type="mailToStudent" formaction="mailto:shivam.thakrani@gmail.com"
+                class="btn btn-primary btn-block">
                 Mail to Student
             </button>
         </div>
-        <div class="form-item"style="width: 30%; ">
+        <div class="form-item" style="width: 30%; ">
             <button type="emergency" formaction="mailto:shivam.thakrani@gmail.com" class="btn btn-primary btn-block">
                 EMERGENCY - Mail to Kailash
             </button>
-        
+
         </div>
     </div>
-    
-  
-    
+
+
+
 
 
 </form>
@@ -92,8 +94,9 @@
 <head>
     <style>
         body {
-            background-image: url("img.jpg");
-            background-color: #cccccc;
+            background-image: url('img/4.png');
+            background-attachment: fixed;
+            background-size: cover;
         }
     </style>
 </head>
