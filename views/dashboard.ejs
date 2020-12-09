@@ -15,7 +15,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <div class="dropdown">
-          <a href="/AboutUS" class="nav-link">
+          <a href="/AboutUS" class="nav-link" id="aboutUs">
             <i class="fas fa-id-badge"></i> About us</a>
 
         </div>
@@ -66,7 +66,7 @@
   <div id="searchRadio" ; style="float: left; margin-left:10px ;">
     <label class="form-item" style="color:#FF0000; ">Search the Records by : </label>
     <label class="btn btn-primary " style="margin-right:1px; margin-left: 15px;">
-      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="stuname" /> Name
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="stuname" id="nameSearchRadio"/> Name
     </label>
     <label class="btn btn-primary " style="margin-right:1px;">
       <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="rollnum" /> Enrollment Number
@@ -81,7 +81,7 @@
   <div id="stuNameDiv" ; style="display: none;">
 
     <form action="/users/getsingle" method="post">
-      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
+      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary" id="subName">Search</button>
       <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Name"
         style="width: 40%;float:right; ">
     </form>
@@ -91,7 +91,7 @@
   <div id="rollnumdiv" ; style="display: none;">
 
     <form action="/users/getsingle1" method="post">
-      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
+      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary" id="subRoll">Search</button>
       <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Enrollment Number"
         style="width: 40%;float:right; ">
     </form>
@@ -101,7 +101,7 @@
   <div id="monthdiv" ; style="display: none;">
 
     <form action="/users/getsingle2" method="post">
-      <button type="submit" style="float: right; margin-left:10px" class="btn btn-primary">Search</button>
+      <button type="submit" style="float: right; margin-left:10px" class="btn btn-primary" id="subMonth">Search</button>
       <input type="number" class="form-control" id="pName" name="pName" placeholder="Search Student by Month"
         style="width: 40%;float:right; ">
     </form>
@@ -470,7 +470,7 @@
   <div class="form-row">
 
     <div class="form-item" style="width: 100%; ">
-      <button type="print" formaction="/precp" class="btn btn-primary btn-block">
+      <button type="print" formaction="/precp" class="btn btn-primary btn-block" id="dashSumbit">
         Save
       </button>
     </div>
