@@ -1,9 +1,18 @@
 # NuInfirmary
 
 TO RUN the application
+
 Step 1: Install Node Modules
 Run the following command in the project repo..
 npm install
+
+Step 2: Create a MongoDB Database table and get the key
+create a file keys.js in config folder and copy the code below..
+
+module.exports = {
+    MongoURI: "Paste Your Database key here"
+}
+
 
 Step 2: Run the application with dev
 Run the following command in the project repo..
