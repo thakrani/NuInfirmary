@@ -1,0 +1,109 @@
+<br>
+<div class="Header" style="text-align: right; ">
+    <h1 style="color: rgb(151, 32, 32);">NIIT University</h1>
+    <h2 style=" color: rgb(151, 32, 32);">Neemrana</h2>
+</div>
+
+<h1 style="font-size: 500%; align-self: center; color: rgb(168, 28, 28);">Display Student details</h1>
+<br>
+<h1 style="font-size: 200%; align-self: right;">Hospital Partner: Kailash Hospital, Behror</h1>
+
+<br>
+
+<hr style="color: rgb(97, 97, 204); height:5px; background-color:rgb(97, 97, 204)">
+
+<script>
+    var d = Date(Date.now());
+    b = d.ge
+    a = d.toString()
+    res = a.slice(0, 24);
+    year = a.slice(11, 15)
+    date = a.slice(8, 11)
+    month = a.slice(4, 8)
+ 
+    document.write("Date: " + date + " " + month + " " + year)
+</script>
+
+
+<br><br>
+
+
+<form>
+    <div class="formitem" style="width: 50%; float:left; font-size:20px ">
+        <label for="name">Student's Name: <%- JSON.parse(JSON.stringify(name)) %></label>
+    </div>
+
+    <div class="formitem" style="width: 50%; font-size:20px ">
+        <label for="rollno">Students's Enrollment Number: <%- JSON.parse(JSON.stringify(rollno)) %></label>
+    </div>
+
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label for="email">email: <%- JSON.parse(JSON.stringify(email)) %> </label><br>
+    </div>
+
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label for="sex">Gender: <%- JSON.parse(JSON.stringify(sex)) %> </label><br>
+    </div>
+    
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label id="dob" for="dob">DOB: <%- dob %> </label><br>
+    </div>
+
+
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label id="age" for="age">AGE: </label>
+        <script>
+
+            var d = JSON.stringify('<%=dob%>');
+            b=d.ge
+            a=d.toString()
+            Bday=a.slice(9,11)
+            Bmonth=a.slice(6,8)
+            Byear=a.slice(1,5)
+            var intByear = parseInt(Byear);
+
+            var d = Date(Date.now());
+            b = d.ge
+            a = d.toString()
+            res = a.slice(0, 24);
+            year = a.slice(11, 15)
+            var intyear = parseInt(year);
+
+            intAge= intyear-intByear;
+
+            document.write(intAge)    
+            
+        
+            </script>
+       
+    </div>
+    
+
+
+    
+
+    <br>
+    <div class="form" style="width: 100%;page-break-before:always;font-size:30px">
+        <button type="button" onclick="window.print()" value="Print" class="btn btn-primary btn-block">
+            Print
+        </button>
+    </div>
+    <br>
+    
+
+
+</form>
+
+
+<hr style="color: rgb(97, 97, 204); height:5px; background-color:rgb(97, 97, 204)">
+
+</div>
+
+<head>
+    <style>
+        body {
+            background-image: url("img.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+</head>

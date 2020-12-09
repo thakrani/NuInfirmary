@@ -1,0 +1,501 @@
+<!-- nav bar div  -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <a href="" class="navbar-brand text-warning">&nbsp;&nbsp;
+    <i class="fab fa-book-open"></i> NIIT </a>
+  <button class="navbar-toggler " data-toggle="collapse" data-target="#menu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="menu">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a href="" class="nav-link">
+          <i class="fas fa-chart-bar"></i> Dashboard</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <div class="dropdown">
+          <a href="/AboutUS" class="nav-link">
+            <i class="fas fa-id-badge"></i> About us</a>
+          
+        </div>
+      </li>
+      <li class="nav-item">
+        <a href="/users/logout" class="nav-link">
+          <i class="fas fa-sign-out-alt"></i> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<!-- <script src="/demo.js" type="text/javascript"></script> -->
+<br>
+
+<!-- header div  -->
+<div class="header">
+  <div class="form-row" >
+    <div class="form-item" style="width: 45%; float:left; ">
+      <h2  style="text-align: left; ">Welcome Dr. <%= name %></h2>
+    </div>
+    <div class="form-item" style="width: 50%; float:left; margin-left: 5%; ">
+      <h1 style="color: rgb(151, 32, 32); text-align: right;">NIIT University</h1>
+      <h2 style=" color: rgb(151, 32, 32); text-align: right;">Neemrana</h2>
+    </div>
+  </div>   
+</div> 
+
+
+<!-- <div class="Header" >
+  <h1 style="color: rgb(151, 32, 32); text-align: right;">NIIT University</h1>
+  <h2 style=" color: rgb(151, 32, 32); text-align: right;">Neemrana</h2>
+</div> -->
+
+<!-- title  -->
+<h1 class="mt-4" style="text-align: center;font-weight: bold;color: brown; font-size: 100px;">NU Infirmary</h1><br>
+
+<!-- doctor name tag  -->
+<!-- <p class="lead mb-3" style="font-size: 50px;text-align: center;text-decoration: underline;font-weight: bold;">
+  Welcome Dr. <%= name %>
+</p> -->
+<br>
+
+
+<!-- Search Division  -->
+<div>
+
+  <!-- Search Radio  -->
+  <div id="searchRadio"; style="float: left; margin-left:10px ;">
+    <label class="form-item" style="color:#FF0000; ">Search the Records by :    </label>
+    <label class="btn btn-primary " style="margin-right:1px; margin-left: 15px;">
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="stuname"/> Name
+    </label>
+    <label class="btn btn-primary " style="margin-right:1px;">
+      <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="rollnum"/> Enrollment Number 
+    </label>
+    <label class="btn btn-primary " style="margin-right:1px;">
+     <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="monthnum"/> Month 
+    </label>
+  </div>
+  <br>
+  
+  <!-- Search by Student  -->
+  <div id="stuNameDiv"; style="display: none;">
+    
+    <form action="/users/getsingle" method="post">
+      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
+      <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Name"
+        style="width: 40%;float:right; ">
+    </form>
+  </div>
+  
+  <!-- Search by Rollnumber  -->
+  <div id="rollnumdiv";  style="display: none;">
+    
+    <form action="/users/getsingle1" method="post">
+      <button type="submit" style="float: right; margin-left:10px ;" class="btn btn-primary">Search</button>
+      <input type="text" class="form-control" id="pName" name="pName" placeholder="Search Student by Enrollment Number"
+        style="width: 40%;float:right; ">
+    </form>
+  </div>
+  
+  <!-- Search by month  -->
+  <div id="monthdiv"; style="display: none;">
+    
+    <form action="/users/getsingle2" method="post">
+      <button type="submit" style="float: right; margin-left:10px" class="btn btn-primary">Search</button>
+      <input type="number" class="form-control" id="pName" name="pName" placeholder="Search Student by Month" style="width: 40%;float:right; " >
+    </form>
+  </div>
+
+  <!-- Script for radio search  -->
+  <script>
+    function yesnoCheck(){
+      
+      if(document.getElementById('stuname').checked){
+        var stuNameDiv = document.getElementById('stuNameDiv');     
+        stuNameDiv.style.display = 'inline';
+  
+        var rollnumdiv = document.getElementById('rollnumdiv');
+        rollnumdiv.style.display= 'none';
+  
+        var monthdiv = document.getElementById('monthdiv');
+        monthdiv.style.display= 'none';
+  
+      }
+      if(document.getElementById('rollnum').checked){
+        var stuNameDiv = document.getElementById('stuNameDiv');     
+        stuNameDiv.style.display= 'none';
+  
+        var rollnumdiv = document.getElementById('rollnumdiv');
+        rollnumdiv.style.display = 'inline';
+  
+        var monthdiv = document.getElementById('monthdiv');
+        monthdiv.style.display= 'none';
+        
+      }
+      if(document.getElementById('monthnum').checked){
+        var stuNameDiv = document.getElementById('stuNameDiv');     
+        stuNameDiv.style.display= 'none';
+  
+        var rollnumdiv = document.getElementById('rollnumdiv');
+        rollnumdiv.style.display= 'none';
+  
+        var monthdiv = document.getElementById('monthdiv');
+        monthdiv.style.display = 'inline';
+        
+      }
+    }
+  </script>
+
+</div>
+
+
+<!-- test add student data div button  -->
+<div style="display: none;"> 
+  <form action="/StudentForm" method="post">
+    <br>
+    <br>
+    <button type="submit" formaction="/StudentForm" style="float: right; margin-left:10px ;" class="btn btn-primary">Student form</button>
+    <br><br>
+  </form>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+
+<!-- date display script  -->
+<script>
+  
+  var d = Date(Date.now());
+  b = d.ge
+  a = d.toString()
+  res = a.slice(0, 24);
+  year = a.slice(11, 15)
+  date = a.slice(8, 11)
+  month = a.slice(4, 8)
+  // document.write(res)
+
+  // document.write(date)
+  // document.write(month)
+  document.write("Date: " + date + " " + month + " " + year)
+</script>
+
+
+<br>
+<br>
+
+
+
+<!-- Complete prescription form  -->
+<form action="/dashboard" method="POST">
+
+
+  <!-- Name and Enrollment -->
+  <div class="form-row">
+
+
+    <div class="form-item" style="width: 45%; float:left; ">
+      <label for="rollno" style="color:#FF0000">Enrollment Number :</label>
+      <input required type="text" id="rollno" name="rollno" class="form-control"
+        placeholder="Enter Enrollment Number" />
+        <input type="button" id="b1" value="Send" onclick="send(this.form);" />
+    </div>
+    
+    <script>
+
+
+      
+      function send(form) {
+        var txtData = form["rollno"].value;
+        getDetails(txtData);
+      }
+
+    </script>
+   
+
+    <div class="form-item" style="width: 50%; float:left; margin-left: 5%; ">
+      <label for="name" style="color:#FF0000">Patient's Name :</label>
+      <input required type="text" id="name" name="name" class="form-control" placeholder="Enter Patient's Name" />
+    </div>
+
+  </div>
+  <br>
+
+
+  <!-- age and dob -->
+  <div class="form-row">
+    <!-- Age -->
+    <div class="form-item" style="width: 45%; float:left; ">
+      <label for="age" style="color:#FF0000">Age :</label>
+      <input required type="number" id="age" name="age" class="form-control" placeholder="Enter Age" />
+    </div>
+
+    <!-- dob -->
+    <div class="form-item" style="width: 50%; float:left; margin-left: 5%; ">
+      <label for="dob" style="color:#FF0000">Date of Birth :</label>
+      <input required type="date" id="dob" name="dob" class="form-control" placeholder="Enter date Of Birth" />
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <!-- Sex & Email-->
+  <div class="form-row">
+
+    <!-- sex  -->
+    <div class="form-item" style="width: 45%; float: left; ">
+      <label class="form-item" style="color:#FF0000">Sex :</label>
+      &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+
+      <label class="btn btn-primary " style="margin-right:1px;">
+        <input id="male-radio" type="radio" name="sex" value="Male" autocomplete="off" checked> Male
+      </label>
+
+      <label class="btn btn-primary " style="margin-right:1px;">
+        <input id="female-radio" type="radio" name="sex" value="Female" autocomplete="off"> Female
+      </label>
+
+      <label class="btn btn-primary " style="margin-right:1px;">
+        <input id="others-radio" type="radio" name="sex" value="Others" autocomplete="off"> Others
+      </label>
+
+      <input id ="sex" type="text" style="display: none;">
+      <script>
+        function genderSave(){
+          if(document.getElementById('male-radio').checked){
+            var sex = document.getElementById('sex');  
+            sex.value="Male" ;  
+          }
+
+          if(document.getElementById('female-radio').checked){
+            var sex = document.getElementById('sex');  
+            sex.value="Female" ;                
+          }
+
+          if(document.getElementById('others-radio').checked){
+            var sex = document.getElementById('sex');  
+            sex.value="Other" ;                 
+          }
+
+        }
+      </script>
+    </div>
+    
+
+    <!-- email  -->
+    <div class="form-item" style="width: 45%; float:left; margin-left: 5%; ">
+      <label for="email" style="color:#FF0000">Email :</label>
+      <input required type="text" id="email" name="email" class="form-control"
+        placeholder="Enter Email" style="width: 111%;" />
+    </div>
+
+  </div>
+
+  <br>
+
+  <!-- symptoms -->
+  <div class="form-item">
+    <label class="form-item" style="color:#FF0000">Symptoms :</label>
+
+
+    <!-- dropdown for symptoms  -->
+    <div>
+      <input list="diseases" name="diseases" id="disease1" style="width: 19%; margin-right: 1%;" required>
+      <datalist id="diseases">
+        <option value=""></option>
+        <option value="Fever">Fever</option>
+        <option value="Cold and Flu">Cold and Flu</option>
+        <option value="Cough">Cough</option>
+        <option value="Headache">Headache</option>
+        <option value="Vomiting">Vomiting</option>
+        <option value="Stomach Ache">Stomach Ache</option>
+        <option value="Fatigue">Fatigue</option>
+        <option value="Muscle aches">Muscle aches</option>
+        <option value="Injury">Injury</option>
+      </datalist>
+
+      <input list="diseases" name="diseases" id="disease2" style="width: 19%; margin-right: 1%;" >
+      <datalist id="diseases"></datalist>
+
+      <input list="diseases" name="diseases" id="disease3"  style="width: 19%; margin-right: 1%;">
+      <datalist id="diseases"></datalist>
+
+      <input list="diseases" name="diseases" id="disease4" style="width: 19%; margin-right: 1%;">
+      <datalist id="diseases"></datalist>
+
+      <input list="diseases" name="diseases" id="disease5" style="width: 18%;">
+      <datalist id="diseases"></datalist>
+
+    </div>
+      
+    
+    
+  </div>
+  <br>
+
+  
+
+
+
+  <!-- Prescription -->
+  <div class="form-item">
+    <label for="psr" style="color:#FF0000">Prescription : </label><br>
+    
+
+
+    <!-- css for table  -->
+    <style>
+      
+      input {
+        width: 100%;
+      }
+
+      table {
+        border-collapse: separate;
+        border-spacing: 0;
+        color: #4a4a4d;
+        font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 10px 15px;
+        vertical-align: middle;
+        border-bottom: 1px solid #cecfd5;
+        border-right: 1px solid #cecfd5;
+      }
+
+      thead {
+        background: hsl(0, 87%, 69%);
+        color: #fff;
+        font-size: 11px;
+        text-transform: uppercase;
+      }
+
+      th:first-child {
+        border-top-left-radius: 5px;
+        text-align: left;
+      }
+
+      th:last-child {
+        border-top-right-radius: 5px;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #f0f0f2;
+      }
+
+    </style>
+
+ 
+
+    
+    <!-- Datalist elements for dropdown  -->
+    <datalist id="Prescription">
+      <option value=""></option>
+      <option value="Paracetamol">Paracetamol</option>
+      <option value="Dolo 500">Dolo 500</option>
+      <option value="Vicks">Vicks</option>
+      <option value="Crocin">Crocin</option>
+      <option value="Ibuprofen">Ibuprofen</option>
+      <option value="Aspirin">Aspirin</option>
+      <option value="Voloni Spray">Voloni Spray</option>
+      <option value="Bandages">Bandages</option>
+      <option value="Combiflam">Combiflam</option>
+    </datalist>
+
+
+    <!-- Prescription Table Elements -->
+
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th scope="col">Medicine name</th>
+          <th scope="col">Dose per Day</th>
+          <th scope="col">For Number of Days</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td> <input list="Prescription" name="Prescription" id="Prescription1" required> </td> 
+          <td class="item-qty"><INPUT id="qty1" type=number name=""></td>         
+          <td class="item-time period"><INPUT id="day1" type=number name=""></td>
+        </tr>
+        
+        <tr>
+          <td>2</td>
+          <td><input list="Prescription" name="Prescription" id="Prescription2"  ></td>
+          <datalist id="Prescription"></datalist>
+          <td class="item-qty"><INPUT id="qty2" type=number name=""></td>         
+          <td class="item-time period"><INPUT id="day2" type=number name=""></td>
+        </tr>
+
+        <tr>
+          <td>3</td>
+          <td><input list="Prescription" name="Prescription" id="Prescription3"  ></td>
+          <datalist id="Prescription"></datalist>
+          <td class="item-qty"><INPUT id="qty3" type=number name=""></td>         
+          <td class="item-time period"><INPUT id="day3" type=number name=""></td>
+        </tr>
+
+        <tr>
+          <td>4</td>
+         <td> <input list="Prescription" name="Prescription" id="Prescription4"  ></td>
+          <datalist id="Prescription"></datalist>
+          <td class="item-qty"><INPUT id="qty4" type=number name=""></td>         
+          <td class="item-time period"><INPUT id="day4" type=number name=""></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><input list="Prescription" name="Prescription" id="Prescription5"  ></td>
+          <datalist id="Prescription"></datalist>
+          <td class="item-qty"><INPUT id="qty5" type=number name=""></td>         
+          <td class="item-time period"><INPUT id="day5" type=number name=""></td>
+        </tr>
+
+      </tbody>
+    </table>
+
+  </div>
+
+  <br>
+
+  <!-- button to save and emergency -->
+  <div class="form-row">
+
+    <div class="form-item" style="width: 100%; ">
+      <button type="print" formaction="/precp" class="btn btn-primary btn-block">
+        Save
+      </button>
+    </div>
+
+    <div class="form-item" style="width: 48%; float:right; margin-left: 4%; display: none;">
+      <button type="emergency" formaction="/emergency" class="btn btn-primary btn-block">
+        Emergency
+      </button>
+    </div>
+
+  </div>
+
+
+</form>
+
+
+<br>
+<br>
+
+<!-- background coulour  -->
+<head>
+  <style>
+    body {
+      
+      background-color: #cccccc;
+    }
+  </style>
+</head>

@@ -1,0 +1,79 @@
+<br>
+<div class="Header" style="text-align: right; ">
+    <h1 style="color: rgb(151, 32, 32);">NIIT University</h1>
+    <h2 style=" color: rgb(151, 32, 32);">Neemrana</h2>
+</div>
+<h1 style="font-size: 1000%; align-self: center; color: rgb(168, 28, 28);">EMERGENCY</h1>
+<br>
+<h1 style="font-size: 200%; align-self: right;">Hospital Partner: Kailash Hospital, Behror</h1>
+
+<br>
+<br>
+<h3 style="color: rgb(40, 40, 170);">Prescription from the In-Campus Doc</h3>
+<hr style="color: rgb(97, 97, 204); height:5px; background-color:rgb(97, 97, 204)">
+<script>
+    var d = Date(Date.now());
+    b = d.ge
+    a = d.toString()
+    res = a.slice(0, 24);
+    year = a.slice(11, 15)
+    date = a.slice(8, 11)
+    month = a.slice(4, 8)
+
+    document.write("Date: " + date + " " + month + " " + year)
+</script>
+<br><br>
+
+<form>
+    <div class="formitem" style="width: 50%; float:left; font-size:20px ">
+        <label for="name">Patient's Name: &nbsp;&nbsp;&nbsp;&nbsp;<%- JSON.parse(JSON.stringify(name)) %></label>
+    </div>
+
+    <div class="formitem" style="width: 50%; font-size:20px ">
+        <label for="age">Patient's Age: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%- JSON.parse(JSON.stringify(age)) %></label>
+    </div>
+
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label for="symptoms">Symptoms:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| 
+            <% for(var i=0; i < JSON.parse(JSON.stringify(rendersympfront)).length; i++) { %>
+                  <%= JSON.parse(JSON.stringify(rendersympfront))[i] %>   | 
+
+           <% } %>
+        </label>
+    </div>
+
+    <div class="formitem" style="text-align: left;font-size: 20px;">
+        <label for="psr">Prescription:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+            <% for(var i=0; i < JSON.parse(JSON.stringify(renderpresfront)).length; i++) { %>
+                <%= JSON.parse(JSON.stringify(renderpresfront))[i] %>   | 
+
+         <% } %>
+        </label><br>
+    </div>
+
+    <br>
+    <div class="form" style="width: 100%;page-break-before:always;font-size:30px">
+        <button type="button" onclick="window.print()" value="Print" class="btn btn-primary btn-block">
+            Save as PDF
+        </button>
+
+        <button type="emergency" formaction="mailto:shivam.thakrani@gmail.com" class="btn btn-primary btn-block">
+            Mail to Kailash
+        </button>
+    </div>
+
+</form>
+
+<br>
+<hr style="color: rgb(97, 97, 204); height:5px; background-color:rgb(97, 97, 204)">
+
+</div>
+
+<head>
+    <style>
+        body {
+            background-image: url("img.jpg");
+            background-color: #cccccc;
+        }
+    </style>
+</head>

@@ -1,0 +1,85 @@
+<html lang="en">
+
+<body>
+
+
+
+  <div id="demo">
+    <br>
+    <h1 style="float: inherit;">Search Result</h1>
+    <br>
+
+
+
+    <div class="table-responsive-vertical shadow-z-1">
+
+      <table id="table" class="table table-hover table-mc-light-blue">
+        <thead>
+          <tr>
+            <th>Date</th>
+              <th>Time</th>
+              <th>Roll no.</th>
+              <th>Name</th>
+              <th>Age</th>
+              <th>Symptoms</th>
+              <th>Prescription</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (data.length > 0) { %>
+          <% data.forEach(data => { %>
+          <tr>
+            <td data-title="Date">
+              <script >
+                var d = JSON.stringify('<%=data.date%>');
+                b=d.ge
+                a=d.toString()
+                res = a.slice(0,24);
+                year=a.slice(11,16)
+                date=a.slice(8,11)
+                month= a.slice(4,8)
+                document.write(+date+" "+month+" "+year)
+              </script>
+        </td>
+        <td data-title="Time">
+              <script >
+                var d = JSON.stringify('<%=data.date%>');
+                b=d.ge
+                a=d.toString()
+                time=a.slice(16,25)
+                document.write(time)
+              </script>
+        </td>
+            <td data-title="Roll no."><%=data.rollno  %></td>
+            <td data-title="Name"><%= data.name%></td>
+            <td data-title="Age"> <%=data.age %></td>
+            <td data-title="Symptoms" style="white-space: pre;"><%= data.symptoms.replace(/\r\n/g, '<br/>')  %></td>
+            <td data-title="Prescription" style="white-space: pre;"><%= data.psr.replace(/\r\n/g, '<br/>')  %></td>
+
+          </tr>
+          <% }) %>
+          <% } else { %>
+          <br>
+          <p>There is no data to display...</p>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+
+
+
+  </div>
+
+
+</body>
+
+</html>
+
+<head>
+  <style>
+    body {
+      background-image: url("img.jpg");
+      background-color: #cccccc;
+    }
+  </style>
+</head>
